@@ -16,10 +16,30 @@
         align-items: center;
         overflow: hidden;
       }
+      body, img {
+        cursor: url(lemonthink-cursor.png), auto;
+      }
+      #checkbox {
+        clip: rect(1px, 1px, 1px, 1px);
+        overflow: hidden;
+        position: absolute;
+        padding: 0;
+      }
+      #checkbox + label {
+        animation: spin 2s linear infinite;
+        animation-play-state: paused;
+      }
+      #checkbox:checked + label {
+        animation-play-state: running;
+      }
+      @keyframes spin {
+        100% { transform: rotate(360deg); }
+      }
     </style>
     <title>lemonthink</title>
   </head>
   <body>
-    <img src="./lemonthink.png" width="256" height="256" alt="lemon think">
+    <input type="checkbox" id="checkbox" />
+    <label for="checkbox"><img src="./lemonthink.png" width="256" height="256" alt="lemon think"></label>
   </body>
 </html>
